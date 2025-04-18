@@ -47,9 +47,14 @@ def sort(width, height, length, mass) -> str:
     is_heavy = check_if_heavy(mass)
 
     if is_bulky and is_heavy:
+        print("REJECTED")
         return "REJECTED"
+
     if is_bulky or is_heavy:
+        print("SPECIAL")
         return "SPECIAL"
+
+    print("STANDARD")
     return "STANDARD"
 
 def check_if_bulky(volume: float, width: float, height: float, length: float) -> bool:
@@ -76,3 +81,12 @@ def check_if_heavy(mass: float) -> bool:
         bool: True if the package is heavy, False otherwise.
     """
     return mass >= HEAVY_MASS_KG
+
+if __name__ == "__main__":
+    print("Hello there! Please, insert the required package information.")
+    width = input("Width: ")
+    height = input("Height: ")
+    length = input("Length: ")
+    mass = input("Mass: ")
+    
+    sort(width, height, length, mass)
